@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Snow White for President — Davide Dapelo</title>
   <meta name="description" content="Snow White for President, a picture book by Davide Dapelo.">
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+  </script>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body class="book-page">
@@ -14,6 +18,7 @@
       <nav aria-label="Primary">
         <a href="/#books">Books</a>
         <a href="/#about">About</a>
+        <button class="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">☾</button>
       </nav>
     </div>
   </header>
@@ -47,5 +52,6 @@
       <p>© 2026 Davide Dapelo</p>
     </div>
   </footer>
+  <script src="/theme.js"></script>
 </body>
 </html>
