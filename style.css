@@ -166,21 +166,18 @@ h3 {
   margin-top: 36px;
 }
 
-.cover-placeholder {
+.cover-link {
+  display: block;
+  line-height: 0;
+}
+
+.cover-image {
+  display: block;
+  width: 100%;
+  height: auto;
   aspect-ratio: 1 / 1;
-  display: grid;
-  place-items: center;
-  padding: 30px;
-  background:
-    radial-gradient(circle at 50% 25%, rgba(255,255,255,.16), transparent 30%),
-    linear-gradient(180deg, #09182d 0%, #153c61 48%, #9a5b32 100%);
-  color: white;
+  object-fit: cover;
   box-shadow: 0 18px 40px rgba(0,0,0,.18);
-  text-align: center;
-  font-family: system-ui, sans-serif;
-  font-size: clamp(1.5rem, 3.5vw, 3.1rem);
-  font-weight: 800;
-  letter-spacing: .02em;
 }
 
 .book-copy p:not(.eyebrow),
@@ -242,7 +239,8 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .cover-placeholder {
+  .cover-link,
+  .cover-image {
     max-width: 430px;
   }
 }
