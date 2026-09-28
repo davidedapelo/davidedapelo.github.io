@@ -160,9 +160,9 @@ h3 {
 
 .book-card {
   display: grid;
-  grid-template-columns: minmax(220px, 280px) 1fr;
-  gap: clamp(32px, 7vw, 88px);
-  align-items: center;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
   margin-top: 36px;
 }
 
@@ -171,13 +171,19 @@ h3 {
   line-height: 0;
 }
 
+.cover-frame {
+  width: 280px;
+  height: 280px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0,0,0,.18);
+}
+
 .cover-image {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
+  height: 100%;
   object-fit: cover;
-  box-shadow: 0 18px 40px rgba(0,0,0,.18);
+  transform: scale(1.004);
 }
 
 .book-copy p:not(.eyebrow),
@@ -240,7 +246,14 @@ h3 {
   }
 
   .cover-link,
+  .cover-frame {
+    width: min(260px, 100%);
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
   .cover-image {
-    max-width: 280px;
+    width: 100%;
+    height: 100%;
   }
 }
