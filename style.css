@@ -160,7 +160,7 @@ h3 {
 
 .book-card {
   display: grid;
-  grid-template-columns: minmax(240px, 380px) 1fr;
+  grid-template-columns: minmax(220px, 280px) 1fr;
   gap: clamp(32px, 7vw, 88px);
   align-items: center;
   margin-top: 36px;
@@ -241,6 +241,6 @@ h3 {
 
   .cover-link,
   .cover-image {
-    max-width: 430px;
+    max-width: 280px;
   }
 }
