@@ -9,7 +9,7 @@
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) document.documentElement.dataset.theme = savedTheme;
   </script>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css?v=4">
 </head>
 <body class="book-page">
   <header class="site-header">
@@ -35,7 +35,9 @@
 
     <section class="books wrap">
       <article class="book-card">
-        <img class="cover-image" src="/images/books/snow-white-for-president/cover.webp" alt="Cover of Snow White for President by Davide Dapelo">
+        <div class="cover-frame">
+          <img class="cover-image" src="/images/books/snow-white-for-president/cover.webp?v=2" alt="Cover of Snow White for President by Davide Dapelo">
+        </div>
         <div class="book-copy">
           <h2>About the book</h2>
           <p>Snow White has to run. Seven miners give her shelter. Then diamonds, spies, an explosion, a media empire and a revolution rather complicate the traditional story.</p>
