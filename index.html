@@ -9,7 +9,7 @@
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) document.documentElement.dataset.theme = savedTheme;
   </script>
-  <link rel="stylesheet" href="/style.css?v=4">
+  <link rel="stylesheet" href="/style.css?v=5">
 </head>
 <body>
   <header class="site-header">
@@ -51,8 +51,15 @@
 
     <section class="about wrap" id="about">
       <h2>About</h2>
-      <p>I'm a lecturer in a scientific subject. I do geeky things with Fluid Dynamics and Artificial Intelligence, and teach stuff about Water and Maths.</p>
-      <p>After reading tons of books to my children, I thought that perhaps I, too, might have something to tell!</p>
+      <article class="book-card about-card">
+        <div class="about-image-frame">
+          <img class="about-image" src="/images/about/pic_about_me.webp?v=1" alt="Davide Dapelo">
+        </div>
+        <div class="about-copy">
+          <p>I'm a lecturer in a scientific subject. I do geeky things with Fluid Dynamics and Artificial Intelligence, and teach stuff about Water and Maths.</p>
+          <p>After reading tons of books to my children, I thought that perhaps I, too, might have something to tell!</p>
+        </div>
+      </article>
     </section>
   </main>
 
