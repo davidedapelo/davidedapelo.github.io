@@ -8,16 +8,23 @@
   <script>
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+    const savedLanguage = localStorage.getItem("language");
+    if (savedLanguage) document.documentElement.lang = savedLanguage;
   </script>
-  <link rel="stylesheet" href="/style.css?v=5">
+  <link rel="stylesheet" href="/style.css?v=6">
 </head>
-<body>
+<body data-page="home">
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="/">Davide Dapelo</a>
       <nav aria-label="Primary">
-        <a href="#books">Books</a>
-        <a href="#about">About</a>
+        <a href="#books" data-i18n="nav.books">Books</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <div class="language-switcher" aria-label="Language">
+          <button class="language-option" type="button" data-lang="en">EN</button>
+          <span aria-hidden="true">|</span>
+          <button class="language-option" type="button" data-lang="it">IT</button>
+        </div>
         <button class="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">☾</button>
       </nav>
     </div>
@@ -25,39 +32,39 @@
 
   <main>
     <section class="hero wrap">
-      <p class="eyebrow">Picture books</p>
-      <h1>Stories for children…<br>And perhaps, for the grown-ups reading them</h1>
+      <p class="eyebrow" data-i18n="home.eyebrow">Picture books</p>
+      <h1><span data-i18n="home.hero1">Stories for children…</span><br><span data-i18n="home.hero2">And perhaps, for the grown-ups reading them</span></h1>
       <p class="lede">
-        This is the home of my picture books.
-        If you are looking for my scientific repositories,
-        <a href="https://github.com/davidedapelo">you can find them here</a>.
+        <span data-i18n="home.lede1">This is the home of my picture books.</span>
+        <span data-i18n="home.lede2">If you are looking for my scientific repositories,</span>
+        <a href="https://github.com/davidedapelo" data-i18n="home.scienceLink">you can find them here</a>.
       </p>
     </section>
 
     <section class="books wrap" id="books">
-      <h2>Books</h2>
+      <h2 data-i18n="home.booksHeading">Books</h2>
       <article class="book-card">
         <a class="cover-link cover-frame" href="/books/snow-white-for-president/" aria-label="Snow White for President">
           <img class="cover-image" src="/images/books/snow-white-for-president/cover.webp?v=2" alt="Cover of Snow White for President by Davide Dapelo">
         </a>
         <div class="book-copy">
-          <p class="eyebrow">Picture book</p>
+          <p class="eyebrow" data-i18n="home.bookType">Picture book</p>
           <h3>Snow White for President</h3>
-          <p>A familiar fairy tale takes an unexpected turn.</p>
-          <a class="button" href="/books/snow-white-for-president/">About the book</a>
+          <p data-i18n="home.bookTeaser">A familiar fairy tale takes an unexpected turn.</p>
+          <a class="button" href="/books/snow-white-for-president/" data-i18n="home.bookButton">About the book</a>
         </div>
       </article>
     </section>
 
     <section class="about wrap" id="about">
-      <h2>About</h2>
+      <h2 data-i18n="home.aboutHeading">About</h2>
       <article class="book-card about-card">
         <div class="about-image-frame">
           <img class="about-image" src="/images/about/pic_about_me.webp?v=1" alt="Davide Dapelo">
         </div>
         <div class="about-copy">
-          <p>I'm a lecturer in a scientific subject. I do geeky things with Fluid Dynamics and Artificial Intelligence, and teach stuff about Water and Maths.</p>
-          <p>After reading tons of books to my children, I thought that perhaps I, too, might have something to tell!</p>
+          <p data-i18n="home.about1">I'm a lecturer in a scientific subject. I do geeky things with Fluid Dynamics and Artificial Intelligence, and teach stuff about Water and Maths.</p>
+          <p data-i18n="home.about2">After reading tons of books to my children, I thought that perhaps I, too, might have something to tell!</p>
         </div>
       </article>
     </section>
@@ -69,5 +76,6 @@
     </div>
   </footer>
   <script src="/theme.js"></script>
+  <script src="/language.js?v=1"></script>
 </body>
 </html>
