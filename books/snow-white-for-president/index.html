@@ -8,16 +8,23 @@
   <script>
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+    const savedLanguage = localStorage.getItem("language");
+    if (savedLanguage) document.documentElement.lang = savedLanguage;
   </script>
-  <link rel="stylesheet" href="/style.css?v=4">
+  <link rel="stylesheet" href="/style.css?v=6">
 </head>
-<body class="book-page">
+<body class="book-page" data-page="book">
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="/">Davide Dapelo</a>
       <nav aria-label="Primary">
-        <a href="/#books">Books</a>
-        <a href="/#about">About</a>
+        <a href="/#books" data-i18n="nav.books">Books</a>
+        <a href="/#about" data-i18n="nav.about">About</a>
+        <div class="language-switcher" aria-label="Language">
+          <button class="language-option" type="button" data-lang="en">EN</button>
+          <span aria-hidden="true">|</span>
+          <button class="language-option" type="button" data-lang="it">IT</button>
+        </div>
         <button class="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">☾</button>
       </nav>
     </div>
@@ -25,11 +32,11 @@
 
   <main>
     <section class="hero wrap">
-      <a class="back-link" href="/">← All books</a>
-      <p class="eyebrow">Picture book</p>
+      <a class="back-link" href="/" data-i18n="book.back">← All books</a>
+      <p class="eyebrow" data-i18n="book.type">Picture book</p>
       <h1>Snow White<br>for President</h1>
       <div class="book-meta">
-        <p class="lede">A familiar fairy tale takes an unexpected turn.</p>
+        <p class="lede" data-i18n="book.teaser">A familiar fairy tale takes an unexpected turn.</p>
       </div>
     </section>
 
@@ -39,9 +46,9 @@
           <img class="cover-image" src="/images/books/snow-white-for-president/cover.webp?v=2" alt="Cover of Snow White for President by Davide Dapelo">
         </div>
         <div class="book-copy">
-          <h2>About the book</h2>
-          <p>Snow White has to run. Seven miners give her shelter. Then diamonds, spies, an explosion, a media empire and a pacific revolution complicate the traditional story.</p>
-          <p>The book is currently being prepared for publication. Purchase links will appear here when it is available.</p>
+          <h2 data-i18n="book.aboutHeading">About the book</h2>
+          <p data-i18n="book.about1">Snow White has to run. Seven miners give her shelter. Then diamonds, spies, an explosion, a media empire and a pacific revolution complicate the traditional story.</p>
+          <p data-i18n="book.about2">The book is currently being prepared for publication. Purchase links will appear here when it is available.</p>
         </div>
       </article>
     </section>
@@ -53,5 +60,6 @@
     </div>
   </footer>
   <script src="/theme.js"></script>
+  <script src="/language.js?v=1"></script>
 </body>
 </html>
