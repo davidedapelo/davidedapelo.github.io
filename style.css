@@ -237,9 +237,28 @@ h3 {
     padding: 18px 0;
   }
 
-  nav { gap: 14px; }
+  nav {
+    gap: 10px;
+  }
 
-  .hero { padding: 68px 0 56px; }
+  nav a {
+    white-space: nowrap;
+    font-size: .95rem;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+    line-height: 1.04;
+  }
+
+  .hero {
+    padding: 68px 0 56px;
+  }
+
+  .theme-toggle {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
 
   .book-card {
     grid-template-columns: 1fr;
@@ -339,8 +358,7 @@ h3 {
 
 @media (max-width: 760px) {
   .language-select {
-    min-width: 3.2rem;
-    padding-left: .5rem;
-    padding-right: 1.25rem;
+    min-width: 3rem;
+    padding: .32rem 1.15rem .32rem .45rem;
   }
 }
