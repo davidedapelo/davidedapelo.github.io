@@ -24,7 +24,7 @@
       "book.type": "Picture book",
       "book.teaser": "A familiar fairy tale takes an unexpected turn.",
       "book.aboutHeading": "About the book",
-      "book.about1": "Snow White has to run. Seven miners give her shelter. Then diamonds, spies, an explosion, a media empire and a pacific revolution complicate the traditional story.",
+      "book.about1": "Snow White has to run. Seven miners give her shelter. Then diamonds, spies, an explosion, a media empire and a peaceful revolution complicate the traditional story.",
       "book.about2": "The book is currently being prepared for publication. Purchase links will appear here when it is available."
     },
     it: {
@@ -51,7 +51,7 @@
       "book.type": "Libro illustrato",
       "book.teaser": "Una fiaba ben nota prende una piega piuttosto inaspettata.",
       "book.aboutHeading": "Il libro",
-      "book.about1": "Biancaneve deve fuggire. Sette minatori le danno rifugio. Poi diamanti, spie, un'esplosione, un impero mediatico e una rivoluzione pacifica complicano non poco la storia tradizionale.",
+      "book.about1": "Biancaneve deve fuggire. Sette minatori le danno rifugio. Poi diamanti, spie, un'esplosione, un impero mediatico e una rivoluzione peacefula complicano non poco la storia tradizionale.",
       "book.about2": "Il libro è attualmente in preparazione per la pubblicazione. I link per acquistarlo compariranno qui quando sarà disponibile."
     }
   };
