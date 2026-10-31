@@ -28,7 +28,20 @@
       "book.teaser": "A familiar fairy tale takes an unexpected turn.",
       "book.aboutHeading": "About the book",
       "book.about1": "Snow White has to run. Seven miners give her shelter. Then diamonds, spies, an explosion, a media empire and a peaceful revolution complicate the traditional story.",
-      "book.buyButton": "Buy"
+      "book.buyButton": "Buy",
+      "book.detailsHeading": "Book details",
+      "book.ageLabel": "Age",
+      "book.ageValue": "4–6 years",
+      "book.formatLabel": "Format",
+      "book.formatValue": "Full-colour picture book",
+      "book.dimensionsLabel": "Dimensions",
+      "book.lengthLabel": "Print length",
+      "book.lengthValue": "29 pages",
+      "book.languageLabel": "Language",
+      "book.languageValue": "English",
+      "book.dateLabel": "Publication date",
+      "book.dateValue": "30 October 2026",
+      "book.publisherLabel": "Publisher"
     },
     it: {
       title: {
@@ -58,7 +71,20 @@
       "book.teaser": "Una fiaba ben nota prende una piega piuttosto inaspettata.",
       "book.aboutHeading": "Il libro",
       "book.about1": "Biancaneve deve fuggire. Sette minatori le danno rifugio. Poi diamanti, spie, un'esplosione, un impero mediatico e una rivoluzione pacifica complicano non poco la storia tradizionale.",
-      "book.buyButton": "Acquista"
+      "book.buyButton": "Acquista",
+      "book.detailsHeading": "Dettagli del libro",
+      "book.ageLabel": "Età",
+      "book.ageValue": "4–6 anni",
+      "book.formatLabel": "Formato",
+      "book.formatValue": "Libro illustrato a colori",
+      "book.dimensionsLabel": "Dimensioni",
+      "book.lengthLabel": "Lunghezza",
+      "book.lengthValue": "29 pagine",
+      "book.languageLabel": "Lingua",
+      "book.languageValue": "Inglese",
+      "book.dateLabel": "Data di pubblicazione",
+      "book.dateValue": "30 ottobre 2026",
+      "book.publisherLabel": "Editore"
     }
   };
 
