@@ -12,6 +12,25 @@
     if (savedLanguage) document.documentElement.lang = savedLanguage;
   </script>
   <link rel="stylesheet" href="/style.css?v=9">
+  <style>
+    .book-page .book-card { grid-template-columns: minmax(0, 390px) minmax(0, 1fr); }
+    .book-gallery { min-width: 0; }
+    .gallery-stage { position: relative; aspect-ratio: 1 / 1; display: grid; place-items: center; background: var(--card); border: 1px solid var(--line); overflow: hidden; }
+    .gallery-main { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 1; width: 38px; height: 44px; border: 1px solid var(--line); border-radius: 4px; background: var(--card); color: var(--ink); font: 32px/1 Georgia, serif; cursor: pointer; opacity: .92; }
+    .gallery-arrow:hover, .gallery-arrow:focus-visible { background: var(--paper); }
+    .gallery-prev { left: 7px; } .gallery-next { right: 7px; }
+    .gallery-thumbs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7px; margin-top: 10px; }
+    .gallery-thumb { display: block; padding: 0; aspect-ratio: 1; border: 2px solid var(--line); background: var(--card); cursor: pointer; overflow: hidden; }
+    .gallery-thumb.is-active { border-color: var(--accent); }
+    .gallery-thumb img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .gallery-thumb:focus-visible, .gallery-arrow:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    .gallery-counter { margin: 6px 0 0; font: .8rem system-ui, sans-serif; text-align: center; color: var(--muted); }
+    @media (max-width: 760px) {
+      .book-page .book-card { grid-template-columns: 1fr; }
+      .book-gallery { width: min(390px, 100%); }
+    }
+  </style>
 </head>
 <body class="book-page" data-page="book">
   <header class="site-header">
@@ -44,8 +63,20 @@
 
     <section class="books wrap">
       <article class="book-card">
-        <div class="cover-frame">
-          <img class="cover-image" src="/images/books/snow-white-for-president/cover.webp?v=2" alt="Cover of Snow White for President by Davide Dapelo">
+        <div class="book-gallery" aria-label="Book image gallery">
+          <div class="gallery-stage">
+            <button class="gallery-arrow gallery-prev" type="button" aria-label="Previous image">‹</button>
+            <img id="gallery-main" class="gallery-main" src="/images/books/snow-white-for-president/cover.webp?v=2" alt="Cover of Snow White for President" width="900" height="900">
+            <button class="gallery-arrow gallery-next" type="button" aria-label="Next image">›</button>
+          </div>
+          <div class="gallery-thumbs" aria-label="Choose an image">
+            <button type="button" class="gallery-thumb is-active" aria-label="Show cover" aria-current="true"><img src="/images/books/snow-white-for-president/cover.webp?v=2" alt="" loading="lazy"></button>
+            <button type="button" class="gallery-thumb" aria-label="Show the book being read"><img src="/images/books/snow-white-for-president/Beatrice.webp" alt="" loading="lazy"></button>
+            <button type="button" class="gallery-thumb" aria-label="Show the explosion illustration"><img src="/images/books/snow-white-for-president/kaboom.webp" alt="" loading="lazy"></button>
+            <button type="button" class="gallery-thumb" aria-label="Show the reflective scene"><img src="/images/books/snow-white-for-president/pensosa.webp" alt="" loading="lazy"></button>
+            <button type="button" class="gallery-thumb" aria-label="Show the wedding illustration"><img src="/images/books/snow-white-for-president/matrimonio.webp" alt="" loading="lazy"></button>
+          </div>
+          <p class="gallery-counter" aria-live="polite">1 / 5</p>
         </div>
         <div class="book-copy">
           <h2 data-i18n="book.aboutHeading">About the book</h2>
@@ -75,6 +106,53 @@
       <p>© 2026 Davide Dapelo</p>
     </div>
   </footer>
+  <script>
+    (() => {
+      const gallery = document.querySelector('.book-gallery');
+      if (!gallery) return;
+      const main = gallery.querySelector('#gallery-main');
+      const thumbs = [...gallery.querySelectorAll('.gallery-thumb')];
+      const counter = gallery.querySelector('.gallery-counter');
+      const images = [
+        {src: '/images/books/snow-white-for-president/cover.webp?v=2', alt: 'Front cover of Snow White for President'},
+        {src: '/images/books/snow-white-for-president/Beatrice.webp', alt: 'A child reading a physical copy of Snow White for President'},
+        {src: '/images/books/snow-white-for-president/kaboom.webp', alt: 'Illustration of Snow White escaping an explosion'},
+        {src: '/images/books/snow-white-for-president/pensosa.webp', alt: 'Illustration of Snow White sitting thoughtfully at sunset'},
+        {src: '/images/books/snow-white-for-president/matrimonio.webp', alt: 'Illustration of Snow White with a family at a wedding'}
+      ];
+      let index = 0;
+      function show(next) {
+        index = (next + images.length) % images.length;
+        main.src = images[index].src;
+        main.alt = images[index].alt;
+        thumbs.forEach((button, i) => {
+          button.classList.toggle('is-active', i === index);
+          if (i === index) button.setAttribute('aria-current', 'true');
+          else button.removeAttribute('aria-current');
+        });
+        counter.textContent = (index + 1) + ' / ' + images.length;
+      }
+      thumbs.forEach((button, i) => button.addEventListener('click', () => show(i)));
+      gallery.querySelector('.gallery-prev').addEventListener('click', () => show(index - 1));
+      gallery.querySelector('.gallery-next').addEventListener('click', () => show(index + 1));
+      gallery.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          event.preventDefault();
+          show(index + (event.key === 'ArrowRight' ? 1 : -1));
+        }
+      });
+      let touchStart = null;
+      gallery.querySelector('.gallery-stage').addEventListener('touchstart', (event) => {
+        touchStart = event.changedTouches[0].clientX;
+      }, {passive: true});
+      gallery.querySelector('.gallery-stage').addEventListener('touchend', (event) => {
+        if (touchStart === null) return;
+        const dx = event.changedTouches[0].clientX - touchStart;
+        if (Math.abs(dx) > 45) show(index + (dx < 0 ? 1 : -1));
+        touchStart = null;
+      }, {passive: true});
+    })();
+  </script>
   <script src="/theme.js"></script>
   <script src="/language.js?v=5"></script>
 </body>
