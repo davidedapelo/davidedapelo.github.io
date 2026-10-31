@@ -11,7 +11,7 @@
     const savedLanguage = localStorage.getItem("language");
     if (savedLanguage) document.documentElement.lang = savedLanguage;
   </script>
-  <link rel="stylesheet" href="/style.css?v=8">
+  <link rel="stylesheet" href="/style.css?v=9">
 </head>
 <body class="book-page" data-page="book">
   <header class="site-header">
@@ -51,6 +51,20 @@
           <h2 data-i18n="book.aboutHeading">About the book</h2>
           <p data-i18n="book.about1">Snow White has to run. Seven miners give her shelter. Then diamonds, spies, an explosion, a media empire and a peaceful revolution complicate the traditional story.</p>
           <a class="button" href="https://www.thegreatbritishbookshop.co.uk/products/snow-white-for-president" target="_blank" rel="noopener" data-i18n="book.buyButton">Buy</a>
+
+          <section class="book-details" aria-labelledby="book-details-heading">
+            <h3 id="book-details-heading" data-i18n="book.detailsHeading">Book details</h3>
+            <dl class="book-details-list">
+              <div><dt data-i18n="book.ageLabel">Age</dt><dd data-i18n="book.ageValue">4–6 years</dd></div>
+              <div><dt data-i18n="book.formatLabel">Format</dt><dd data-i18n="book.formatValue">Full-colour picture book</dd></div>
+              <div><dt data-i18n="book.dimensionsLabel">Dimensions</dt><dd>297 × 297 mm</dd></div>
+              <div><dt data-i18n="book.lengthLabel">Print length</dt><dd data-i18n="book.lengthValue">29 pages</dd></div>
+              <div><dt data-i18n="book.languageLabel">Language</dt><dd data-i18n="book.languageValue">English</dd></div>
+              <div><dt>ISBN-13</dt><dd>978-1-9192267-0-5</dd></div>
+              <div><dt data-i18n="book.dateLabel">Publication date</dt><dd data-i18n="book.dateValue">30 October 2026</dd></div>
+              <div><dt data-i18n="book.publisherLabel">Publisher</dt><dd>Davide Dapelo</dd></div>
+            </dl>
+          </section>
         </div>
       </article>
     </section>
